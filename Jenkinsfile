@@ -176,14 +176,15 @@ pipeline{
 	    }
         
         //Deploy the app on the Staging Server
-        stage ('Deploy the app on the staging ') {
-	        input {
-                message "Are you OK to proceed for application deployment ?"
-                ok "Yes"                
-            }            
+        stage ('Deploy the app on the Deployment Server ') {
+           // input {
+            //    message "Are you OK to proceed for application deployment ?"
+            //    ok "Yes, we should."
+             //   submitter "Me, the DevOps Engineer !"
+            //}            
             steps {
                // TODO  - GET THE war artifact from Nexus
-               echo "====++++  Deploy the war on the Staging Server ++++===="
+               echo "====++++  Deploy the war on the Deployment Server ++++===="
 
 	           sh "docker cp $WORKSPACE/target/greetings-0.1-RELEASE.war deployment_server:/usr/local/tomcat/webapps/hello.war"
             }
@@ -198,12 +199,12 @@ pipeline{
             }
 	    }
           // STOP the Staging Server
-	    stage ('Clean Up : Stop the Deployment Server') {	          
-           steps {
-               echo "====++++ Stop the Deployment Server ++++===="
-	           sh "docker stop   deployment_server && docker rm  deployment_server "
-               echo " STOPPED The the deployment_server server."
-            }
-	    }	    
+	   // stage ('Clean Up : Stop the Deployment Server') {	          
+        //   steps {
+        //       echo "====++++ Stop the Deployment Server ++++===="
+	    //       sh "docker stop   deployment_server && docker rm  deployment_server "
+        //       echo " STOPPED The the deployment_server server."
+         //   }
+	    //}	    
     }   
 }
