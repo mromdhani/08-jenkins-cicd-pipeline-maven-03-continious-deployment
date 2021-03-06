@@ -1,9 +1,9 @@
-# JenkinsCI : Continious Delivery
+# JenkinsCI : Continious Deployment
 ---
 
 
 
-This Delivery Pipeline extends the  CI Pipeline implemented in the previous Lab. (`07-jenkins-cicd-pipeline-maven-01-continious-integration`). It adds  the steps related to the deployment of the application in the Staging server, the performance analysis, and the promotion of the  artificat to the release repository. 
+This Delivery Pipeline extends the  Delivery Pipeline implemented in the previous Lab. (`08-jenkins-cicd-pipeline-maven-02-continious-delivery`). It adds  the steps related to the deployment of the application in the Deployment server.
 
 ## Required Setup for the Delivery Pipeline
 
@@ -73,7 +73,7 @@ Here you are going to install and configure a few plugins for Nexus in Jenkins. 
 - Add Nexus Repository Manager's user credentials in Jenkins. Go to Dashboard > Credentials > System > Global credentials (unrestricted), as shown below:
 ![illustration](images/nexus_user_jenkins.png)
 
-## The Delivery pipeline
+## The Deployment pipeline
 
 This is the stages  of the Delivery pipeline:
  - Clone App from Git
@@ -87,10 +87,10 @@ This is the stages  of the Delivery pipeline:
  - Do the Performance Testing
  - Publish the performance reports
  - Promote the app in  Nexus Repository Manager
- - Clean Up : Stop the Stagin Server
-   
-The figure below shows the stages of the pipeline.
-![Pipeline](images/pipeline.png)
+ - Start the Deployment  Server 
+ - Deploy the app on the Deployment Server 
+ - Clean Up : Stop the Staging Server	          
+ - Clean Up : Stop the Deployment Server  
 
 
 
